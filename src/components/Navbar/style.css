@@ -1,0 +1,22 @@
+.nav-div{
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    background-color: black;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav-div ul{
+    display: flex;
+}
+.nav-div ul{
+    list-style-type: none;
+}
+.nav-div ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 0rem 2rem; 
+}
+.nav-div ul li a:hover{
+    text-decoration: underline;
+}
