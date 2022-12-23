@@ -51,23 +51,25 @@ const AllTrips= () => {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Title</StyledTableCell>
+            <StyledTableCell>Trip ID</StyledTableCell>
             <StyledTableCell align="right">Phone No.</StyledTableCell>
-            <StyledTableCell align="right">category</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
-            <StyledTableCell align="right">Details</StyledTableCell>
+            <StyledTableCell align="right">Departure Date</StyledTableCell>
+            <StyledTableCell align="right">Return Date</StyledTableCell>
+            <StyledTableCell align="right">Destination</StyledTableCell>
+            <StyledTableCell align="right">Stay</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {trips.map((row) => (
-            <StyledTableRow key={row.name}>
+            <StyledTableRow key={row.tripID}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {row.tripID}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.phone}</StyledTableCell>
-              <StyledTableCell align="right">{row.eyeColor}</StyledTableCell>
-              <StyledTableCell align="right">{row.registered}</StyledTableCell>
-              <StyledTableCell align="right">hide</StyledTableCell>
+              <StyledTableCell align="right">{row.phone_number}</StyledTableCell>
+              <StyledTableCell align="right">{row.departure_date.toDate().toLocaleDateString()}</StyledTableCell>
+              <StyledTableCell align="right">{row.return.toDate().toLocaleDateString()}</StyledTableCell>
+              <StyledTableCell align="right">{row.destination}</StyledTableCell>
+              <StyledTableCell align="right">{row.stay}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

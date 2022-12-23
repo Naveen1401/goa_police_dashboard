@@ -12,7 +12,7 @@ const Complaint = () => {
 
 
     const [users,setUsers] = useState([]);
-    const userRef = collection(db,"challan")
+    const userRef = collection(db,"complaint")
     
     const dispatch = useDispatch();
     useEffect(()=>{

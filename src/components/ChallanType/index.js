@@ -4,6 +4,7 @@ import { challanSliceActions } from '../../store/challanSlice';
 import "./style.css"
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ReactHtmlTableToExcel from 'react-html-table-to-excel';
+import SearchChallan from '../SearchChallan';
 
 const ChallanType = ()=> {
 
@@ -24,7 +25,7 @@ const ChallanType = ()=> {
                 return data
             }
             else{
-                return value.eyeColor.toLowerCase().includes(filterWord.toLowerCase());
+                return value.offence.toLowerCase().includes(filterWord.toLowerCase());
             }
         });
 
@@ -43,12 +44,13 @@ const ChallanType = ()=> {
             <FilterAltIcon/>
             <select name="TopicSelector" className='topicselector' id="topicSelector" onChange={selectedTopic}>
                 <option value="All">All</option>
-                <option value="c1">C1</option>
-                <option value="c2">C2</option>
-                <option value="c3">C3</option>
-                <option value="c4">C4</option>
-                <option value="c5">C5</option>
+                <option value="without Helmet">Wilthout Helmet</option>
+                <option value="overspeeding">Overspeeding</option>
+                <option value="tripling">Tripling</option>
             </select>
+        </div>
+        <div className="search_challan_id">
+            <SearchChallan placeholder={"Search by challan ID"} />
         </div>
         <div className='exportBtn-div'>
             <ReactHtmlTableToExcel className = "export-btn" table = "challan-table" filename = "Challan-cheet" sheet = "Sheet" buttonText = "Export Challan Sheet"/>
@@ -58,4 +60,3 @@ const ChallanType = ()=> {
 }
 
 export default ChallanType
- 

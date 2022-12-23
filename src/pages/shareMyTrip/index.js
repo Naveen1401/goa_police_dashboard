@@ -10,7 +10,7 @@ import AllTrips from '../../components/AllTrips';
 const ShareMyTrip = () => {
 
     const [users,setUsers] = useState([]);
-    const userRef = collection(db,"challan")
+    const userRef = collection(db,"tripDetails")
     
     const dispatch = useDispatch();
     useEffect(()=>{

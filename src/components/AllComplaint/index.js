@@ -52,23 +52,23 @@ const AllComplaint = () => {
       <Table id = "complaint-table" sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Title</StyledTableCell>
+            <StyledTableCell>Complaint ID</StyledTableCell>
             <StyledTableCell align="right">Phone No.</StyledTableCell>
-            <StyledTableCell align="right">category</StyledTableCell>
+            <StyledTableCell align="right">Type</StyledTableCell>
             <StyledTableCell align="right">Date</StyledTableCell>
             <StyledTableCell align="right">Details</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {complaint.map((row) => (
-            <StyledTableRow key={row.name}>
+            <StyledTableRow key={row.complaintID}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {row.complaintID}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.phone}</StyledTableCell>
-              <StyledTableCell align="right">{row.eyeColor}</StyledTableCell>
-              <StyledTableCell align="right">{row.registered}</StyledTableCell>
-              <StyledTableCell align="right"><DetailsModal address = {row.address} details={row.about} images = {row.picture}/></StyledTableCell>
+              <StyledTableCell align="right">{row.phone_number}</StyledTableCell>
+              <StyledTableCell align="right">{row.type}</StyledTableCell>
+              <StyledTableCell align="right">{row.date.toDate().toLocaleDateString()}</StyledTableCell>
+              <StyledTableCell align="right"><DetailsModal address = {row.address} details={row.description} images = {row.picture}/></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

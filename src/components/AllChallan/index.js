@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -48,16 +49,38 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const AllChallan = () => {
 
   const challan = useSelector((state) => state.challan.challan);
-  // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  // [...challan].sort((a,b)=>a.challan_id>b.challan_id?1:-1)
 
+
+  // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  console.log(challan,"----");
 
   const updateChallan = async(id, curStatus)=>{
     console.log(id,curStatus);
     const challanDoc = doc(db,"challan", id);
-    const newFields = {paid: curStatus? false:true}
+    const newFields = {status: curStatus? false:true} //not able to fetch the data after updating it.
+    console.log(newFields);
     await updateDoc(challanDoc, newFields)
   }
-
+  // const [data, setdata] = useState(challan);
+  // const [order, setorder] = useState("asc");
+  // const sorting = (col) =>{
+  //   if(order === "asc"){
+  //     const sortedData = [...challan].sort((a,b)=>
+  //       a[col]>b[col]?1:-1
+  //     )
+  //     setdata(sortedData);
+  //     setorder("dec");
+  //   }
+  //   if (order === "dec") {
+  //     const sortedData = [...challan].sort((a, b) => 
+  //       a[col] < b[col] ? 1 : -1
+  //     )
+  //     setdata(sortedData);
+  //     setorder("asc");
+  //   }
+  // }
+  console.log(challan);
 
   return (
     <div>
@@ -65,23 +88,25 @@ const AllChallan = () => {
       <Table id = "challan-table" sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Title</StyledTableCell>
-            <StyledTableCell align="right">Phone No.</StyledTableCell>
-            <StyledTableCell align="right">category</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
-            <StyledTableCell align="right">Details</StyledTableCell>
+            <StyledTableCell>Challan ID</StyledTableCell>
+            <StyledTableCell align="center">Offence</StyledTableCell>
+            <StyledTableCell align="center">Amount</StyledTableCell>
+            <StyledTableCell align="center">Date</StyledTableCell>
+            <StyledTableCell align="right">Status</StyledTableCell>
+            <StyledTableCell align="right">Contact</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {challan.map((row) => (
-            <StyledTableRow key={row.name}>
+          {[...challan].sort((a,b)=>a.date<b.date?1:-1).map((row) => (
+            <StyledTableRow key={row.challan_id}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {row.challan_id}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.phone}</StyledTableCell>
-              <StyledTableCell align="right">{row.eyeColor}</StyledTableCell>
-              <StyledTableCell align="right">{row.registered}</StyledTableCell>
-              <StyledTableCell align="right">{row.paid?<Checkbox defaultChecked onChange={()=>{updateChallan(row.id, row.paid)}}/>:<Checkbox onChange={()=>{updateChallan(row.id, row.paid)}} />}</StyledTableCell>
+              <StyledTableCell align="center">{row.offence}</StyledTableCell>
+              <StyledTableCell align="center">{row.amount}</StyledTableCell>
+              <StyledTableCell align="center">{row.date.toDate().toLocaleDateString()}</StyledTableCell>
+              <StyledTableCell align="right">{row.status?<Checkbox defaultChecked onChange={()=>{updateChallan(row.id, row.status)}}/>:<Checkbox onChange={()=>{updateChallan(row.id, row.status)}} />}</StyledTableCell>
+              <StyledTableCell align="right"><button>Send Email</button></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

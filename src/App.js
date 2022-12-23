@@ -34,17 +34,17 @@ function App() {
       setStatus(currentStatus);
   })
 
-  // if(status!=null){
-  //   console.log("Login");
-  // }else{
-  //   console.log("Logout");
-  // }
+  if(status!=null){
+    console.log("Login");
+  }else{
+    console.log("Logout");
+  }
 
 
 
   return (
     <div className="App">
-      <div className="header-div">
+      <div className={status != null ?"header-div":"hide_header"}>
         <div className="sidebar"><SideDrawer/></div>
         <LogOut/>
       </div>

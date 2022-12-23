@@ -11,6 +11,9 @@
     padding: 1rem;
     align-items: center;
 }
+.hide_header{
+    display: none;
+}
 .css-11xur9t-MuiPaper-root-MuiTableContainer-root{
     border-radius: 0 !important;
 }

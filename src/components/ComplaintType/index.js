@@ -20,7 +20,12 @@ const ComplaintType = ()=> {
     const selectedTopic = (event) =>{
         const filterWord = event.target.value;
         const topicList = data.filter((value)=>{
-            return value.eyeColor.toLowerCase().includes(filterWord.toLowerCase());
+            if (filterWord === "All") {
+                return data
+            }
+            else {
+                return value.type.toLowerCase().includes(filterWord.toLowerCase());
+            }
         });
 
         dispatch(complaintSliceActions.setComplaint({data: topicList}));
@@ -37,11 +42,11 @@ const ComplaintType = ()=> {
         <div className='topicfilter'>
             <FilterAltIcon/>
             <select name="TopicSelector" className='topicselector' id="topicSelector" onChange={selectedTopic}>
-                <option value="c1">C1</option>
-                <option value="c2">C2</option>
-                <option value="c3">C3</option>
-                <option value="c4">C4</option>
-                <option value="c5">C5</option>
+                <option value="All">All</option>
+                <option value="drug">Drug</option>
+                <option value="fraud">Fraud</option>
+                <option value="theft">Theft</option>
+                <option value="voilance">Voilance</option>
             </select>
         </div>
         <div className='exportBtn-div'>

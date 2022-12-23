@@ -9,7 +9,7 @@ import { vacationSliceActions } from '../../store/vacationSlice';
 const Vacation = () => {
 
     const [users,setUsers] = useState([]);
-    const userRef = collection(db,"challan")
+    const userRef = collection(db,"vacationDetails")
     
     const dispatch = useDispatch();
     useEffect(()=>{

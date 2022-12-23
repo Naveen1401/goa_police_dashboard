@@ -51,23 +51,23 @@ const AllVacations= () => {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Title</StyledTableCell>
+            <StyledTableCell>Vacation ID</StyledTableCell>
             <StyledTableCell align="right">Phone No.</StyledTableCell>
-            <StyledTableCell align="right">category</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
-            <StyledTableCell align="right">Details</StyledTableCell>
+            <StyledTableCell align="right">Departure Date</StyledTableCell>
+            <StyledTableCell align="right">Return Date</StyledTableCell>
+            <StyledTableCell align="right">Location</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {vacations.map((row) => (
-            <StyledTableRow key={row.name}>
+            <StyledTableRow key={row.vacationID}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {row.vacationID}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.phone}</StyledTableCell>
-              <StyledTableCell align="right">{row.eyeColor}</StyledTableCell>
-              <StyledTableCell align="right">{row.registered}</StyledTableCell>
-              <StyledTableCell align="right">hide</StyledTableCell>
+              <StyledTableCell align="right">{row.phone_number}</StyledTableCell>
+              <StyledTableCell align="right">{row.departure_date.toDate().toLocaleDateString()}</StyledTableCell>
+              <StyledTableCell align="right">{row.return_date.toDate().toLocaleDateString()}</StyledTableCell>
+              <StyledTableCell align="right">[{row.address.latitude},{row.address.longitude}]</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
