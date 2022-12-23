@@ -6,7 +6,7 @@
 .header-div{
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background-color: #FF6F00;
     color: white;
     padding: 1rem;
     align-items: center;
@@ -28,4 +28,16 @@
 .export-btn:hover{
     background-color: rgb(61, 61, 61);
     color: white;
+}
+
+
+/* table background color */
+.css-1wvnaxz-MuiTableCell-root.MuiTableCell-head {
+    background-color: #fe6f00 !important;
+}
+.css-og52vs-MuiTableCell-root.MuiTableCell-head {
+    background-color: #fe6f00 !important;
+}
+.css-1nslmh4-MuiTableCell-root.MuiTableCell-head {
+    background-color: #fe6f00 !important;
 }

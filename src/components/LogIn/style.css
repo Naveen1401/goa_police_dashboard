@@ -1,18 +1,19 @@
 .login-div{
     display: flex;
-    height: 75vh;
+    height: 100vh;
     justify-content: center;
     align-items: center;
 }
 .login-div form{
     display: flex;
     width: 25%;
-    height: 40%;
+    height: 15rem;
     flex-direction: column;
     justify-content: center;
     padding: 4rem;
     border-radius: 1rem;
     box-shadow: 0 0 15px 0px #00000038;
+    margin: 4rem;
 }
 .login-div form h1{
     padding-bottom: 14px;
@@ -37,4 +38,7 @@
     /* color: black; */
     background-color: rgb(34, 34, 34);
     cursor: pointer;
+}
+.logo img{
+    height: 15rem;
 }

@@ -43,7 +43,8 @@ const SideDrawer = ()=> {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <h1 style={{paddingLeft:"14px"}} >Lorem </h1>
+        <h1 style={{
+          paddingLeft: "14px", color: "#FF6F00"}} >Goa safe </h1>
       </List>
       <List>
         {['Challan', 'Complaint', 'Share My trip', 'Going on a vacation'].map((text, index) => (

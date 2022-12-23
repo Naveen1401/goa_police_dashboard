@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './style.css'
+import logo from "../../images/Frame 1.svg"
 import {signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
@@ -27,6 +28,9 @@ const LogIn = () => {
     return (
     <>
       <div className="login-div">
+        <div className="logo">
+          <img src={logo} alt="Image" srcset="" />
+        </div>
         <form>
           <h1>Log In</h1>
           <label>Email</label>

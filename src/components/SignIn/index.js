@@ -24,7 +24,7 @@ const SignIn = () => {
 
     return (
     <>
-      <div className="login-div">
+      <div className="signin-div">
         <form>
           <h1>Create Account</h1>
           <label>Email</label>
